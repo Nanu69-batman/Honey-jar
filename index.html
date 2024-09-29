@@ -22,54 +22,56 @@
         }
         input {
             font-size: 1.2em;
-            padding: 5px;   
+            padding: 5px;
             width: 100px;
             text-align: center;
         }
     </style>
 </head>
 <body>
-
-    <h1>hiiii</h1>
     <h1>Honey Jar</h1>
+
     <div class="honey-jar">
         Current Hours in Jar: <span id="currentHours">0</span> / 40
     </div>
 
-    <div>
-        <input type="number" id="hoursToAdd" placeholder="Enter hours">
-        <button id="addHours">Add Hours</button>
-    </div>
-    
-    <div>
-        <input type="number" id="hoursToRemove" placeholder="Enter hours">
-        <button id="removeHours">Remove Hours</button>
-    </div>
-    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js"></script>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyCVtw5H7TtRzs4fUzs3JNZb3Lps8jnHjzg",
-          authDomain: "honey-jar-cb103.firebaseapp.com",
-          projectId: "honey-jar-cb103",
-          storageBucket: "honey-jar-cb103.appspot.com",
-          messagingSenderId: "226096927592",
-          appId: "1:226096927592:web:edce57dbf11b98fdf3fcdd",
-          measurementId: "G-L62Q1PZJF9"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-      </script>
-    <script src="script.js"></script>
+    <input type="number" id="hoursToAdd" placeholder="Enter hours to add">
+    <button id="addHours">Add Hours</button>
+
+    <input type="number" id="hoursToRemove" placeholder="Enter hours to remove">
+    <button id="removeHours">Remove Hours</button>
+
+    <script>
+        // Initialize the honey jar capacity
+        const maxHours = 40;
+        let currentHours = parseInt(localStorage.getItem('honeyJarHours')) || 0;
+
+        // Function to update and display the current hours in the honey jar
+        function updateDisplay() {
+            document.getElementById('currentHours').innerText = currentHours;
+            localStorage.setItem('honeyJarHours', currentHours);
+        }
+
+        // Initialize display on page load
+        updateDisplay();
+
+        // Add hours to the jar
+        document.getElementById('addHours').addEventListener('click', () => {
+            const hoursToAdd = parseInt(document.getElementById('hoursToAdd').value);
+            if (!isNaN(hoursToAdd) && hoursToAdd > 0) {
+                currentHours = Math.min(currentHours + hoursToAdd, maxHours);
+                updateDisplay();
+            }
+        });
+
+        // Remove hours from the jar
+        document.getElementById('removeHours').addEventListener('click', () => {
+            const hoursToRemove = parseInt(document.getElementById('hoursToRemove').value);
+            if (!isNaN(hoursToRemove) && hoursToRemove > 0) {
+                currentHours = Math.max(currentHours - hoursToRemove, 0);
+                updateDisplay();
+            }
+        });
+    </script>
 </body>
 </html>
