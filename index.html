@@ -4,72 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Honey Jar</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
-        .honey-jar {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 1.2em;
-            margin: 10px;
-            cursor: pointer;
-        }
-        input {
-            font-size: 1.2em;
-            padding: 5px;   
-            width: 100px;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-
-    <h1>hiiii</h1>
-    <h1>Honey Jar</h1>
-    <div class="honey-jar">
-        Current Hours in Jar: <span id="currentHours">0</span> / 40
-    </div>
-
-    <div>
-        <input type="number" id="hoursToAdd" placeholder="Enter hours">
-        <button id="addHours">Add Hours</button>
-    </div>
     
-    <div>
-        <input type="number" id="hoursToRemove" placeholder="Enter hours">
-        <button id="removeHours">Remove Hours</button>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="baby-pink-theme"> <!-- Default theme on load -->
+
+    <h1>The Jar</h1>
+
+    <!-- Honey Jar Visual -->
+    <div class="jar-container">
+        <!-- Filled honey jar background image -->
+        <img src="honey.png" alt="Filled Honey Jar" class="honey-filled" id="filledJar">
+
+        <!-- Overlay div that will simulate the removal of honey -->
+        <div class="honey-overlay" id="honeyOverlay"></div>
+
+        <!-- Empty jar image placed on top -->
+        <img src="jar.png" alt="Empty Jar" class="jar-empty">
     </div>
-    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js"></script>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyCVtw5H7TtRzs4fUzs3JNZb3Lps8jnHjzg",
-          authDomain: "honey-jar-cb103.firebaseapp.com",
-          projectId: "honey-jar-cb103",
-          storageBucket: "honey-jar-cb103.appspot.com",
-          messagingSenderId: "226096927592",
-          appId: "1:226096927592:web:edce57dbf11b98fdf3fcdd",
-          measurementId: "G-L62Q1PZJF9"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-      </script>
+
+    <!-- Current Hours Display -->
+    <div class="current-hours-text">
+        Current Hours in Jar: <span id="currentHours">0</span> / <span id="maxHours">40</span>
+    </div>
+
+    <!-- Combined Input for Adding/Removing Hours -->
+    <input type="number" id="hoursInput" placeholder="Enter hours">
+    <button id="addHours">Add Hours</button>
+    <button id="removeHours">Remove Hours</button>
+
+    <div id="content"></div>
+
+         <!-- Theme Switcher Buttons -->
+     <div id="themebuts">
+        <div class="theme-switcher">
+            <button id="babyPinkButton" class="theme-button"></button>
+            <button id="babyBlueButton" class="theme-button"></button>
+            <button id="lavenderButton" class="theme-button"></button>
+        </div>
+        </div>
+
     <script src="script.js"></script>
+
 </body>
 </html>

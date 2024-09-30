@@ -1,0 +1,271 @@
+/* Default styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffeef8; /* Light baby pink background */
+    color: #333; /* Darker text for contrast */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+    padding: 0 5vw; /* Added responsive padding */
+}
+
+h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 6vw; /* Responsive font size */
+    color: #ff6f91; /* Baby pink */
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2vh; /* Responsive margin */
+    letter-spacing: 1px;
+}
+
+.jar-container {
+    position: relative;
+    width: 80vw; /* Responsive width */
+    max-width: 30vw; /* Maintain maximum width */
+    height: auto;
+    aspect-ratio: 1077 / 1600; /* Maintain a 1:2 aspect ratio */
+    margin-bottom: 5vh; /* Responsive margin */
+}
+
+.honey-filled {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio */
+    z-index: 1;
+    transition: box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.honey-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    background-color: #ffeef8; /* Same as the page background */
+    z-index: 2;
+    transition: height 0.3s ease;
+}
+
+.jar-empty {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio */
+    z-index: 3;
+}
+
+.current-hours-text {
+    margin-bottom: 2vh;
+    font-size: 3vw; /* Responsive font size */
+    color: #ff6f91; /* Baby pink */
+}
+
+button, input {
+    padding: 1vh 2vw; /* Responsive padding */
+    font-size: 2vw; /* Responsive font size */
+    margin: 2vh 1vw; /* Responsive margin */
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    background-color: #ff9eb3; /* Light pastel pink */
+    color: white;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #ff6f91; /* Baby pink on hover */
+    transform: scale(1.05);
+}
+
+input {
+    width: 100%;
+    max-width: 30vw; /* Responsive max width */
+    background-color: #fff5f8; /* Very light baby pink */
+    border: 2px solid #ff6f91; /* Baby pink border */
+    text-align: center;
+    color: #6d4c41; /* Dark brown for input text */
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+#content{
+    flex: 1;
+}
+
+/* Theme Switcher Buttons */
+#themebuts {
+    display: flex;
+    justify-content: right; /* Center the buttons */
+    width: 100%;
+}
+
+.theme-switcher {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.theme-button {
+    width: 4vw; /* Responsive width */
+    height: 4vw; /* Responsive height */
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow all around */
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.theme-button:hover {
+    transform: scale(1.1);
+}
+
+/* Baby Pink Theme */
+.baby-pink-theme {
+    background-color: #ffeef8; /* Light baby pink background */
+    color: #333; /* Darker text for contrast */
+}
+
+.baby-pink-theme .honey-overlay{
+    background-color: #ffeef8;
+}
+
+.baby-pink-theme h1 {
+    color: #ff6f91; /* Baby pink */
+}
+
+.baby-pink-theme .current-hours-text {
+    color: #ff6f91; /* Baby pink */
+}
+
+.baby-pink-theme button {
+    background-color: #ff9eb3; /* Light pastel pink */
+    color: white;
+}
+
+.baby-pink-theme button:hover {
+    background-color: #ff6f91; /* Baby pink on hover */
+}
+
+.baby-pink-theme input {
+    background-color: #fff5f8; /* Very light baby pink */
+    border: 2px solid #ff6f91; /* Baby pink border */
+    color: #6d4c41; /* Dark brown for input text */
+}
+
+/* Baby Blue Theme */
+.baby-blue-theme {
+    background-color: #89cff0; /* Baby blue background */
+    color: #333; /* Darker text for contrast */
+}
+
+.baby-blue-theme .honey-overlay{
+    background-color: #89cff0;
+}
+
+.baby-blue-theme h1 {
+    color: #0077be; /* Darker blue for headings */
+}
+
+.baby-blue-theme .current-hours-text {
+    color: #0077be; /* Darker blue */
+}
+
+.baby-blue-theme button {
+    background-color: #6db3f2; /* Light baby blue */
+    color: white;
+}
+
+.baby-blue-theme button:hover {
+    background-color: #0077be; /* Darker blue on hover */
+}
+
+.baby-blue-theme input {
+    background-color: #d1ecf1; /* Very light baby blue */
+    border: 2px solid #0077be; /* Blue border */
+    color: #2c3e50; /* Darker blue for input text */
+}
+
+/* Lavender Theme */
+.lavender-theme {
+    background-color: #d4d4ff; /* Lavender background */
+    color: #333; /* Darker text for contrast */
+}
+
+.lavender-theme .honey-overlay{
+    background-color: #d4d4ff;
+}
+
+.lavender-theme h1 {
+    color: #9e72c3; /* Darker purple for headings */
+}
+
+.lavender-theme .current-hours-text {
+    color: #9e72c3; /* Darker purple */
+}
+
+.lavender-theme button {
+    background-color: #c0a1e8; /* Light lavender */
+    color: white;
+}
+
+.lavender-theme button:hover {
+    background-color: #9e72c3; /* Darker purple on hover */
+}
+
+.lavender-theme input {
+    background-color: #e4d7ff; /* Very light lavender */
+    border: 2px solid #9e72c3; /* Purple border */
+    color: #4a2c5a; /* Darker purple for input text */
+}
+
+/* Theme Switcher Buttons */
+#themebuts {
+    display: flex;
+    justify-content: right; /* Center the buttons */
+    width: 100%;
+}
+
+.theme-switcher {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.theme-button {
+    width: 4vw; /* Responsive width */
+    height: 4vw; /* Responsive height */
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow all around */
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.theme-button:hover {
+    transform: scale(1.1);
+}
+
+#babyPinkButton {
+    background-color: #ff9eb3; /* Baby pink */
+}
+
+#babyBlueButton {
+    background-color: #89cff0; /* Baby blue */
+}
+
+#lavenderButton {
+    background-color: #c0a1e8; /* Light lavender */
+}
