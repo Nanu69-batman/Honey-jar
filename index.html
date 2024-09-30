@@ -4,75 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Honey Jar</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
-        .honey-jar {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 1.2em;
-            margin: 10px;
-            cursor: pointer;
-        }
-        input {
-            font-size: 1.2em;
-            padding: 5px;
-            width: 100px;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <h1>Honey Jar</h1>
+    
+    <link rel="stylesheet" href="style.css">
 
-    <div class="honey-jar">
-        Current Hours in Jar: <span id="currentHours">0</span> / 40
+</head>
+<body class="baby-pink-theme"> <!-- Default theme on load -->
+
+    <h1>The Jar</h1>
+
+    <!-- Honey Jar Visual -->
+    <div class="jar-container">
+        <!-- Filled honey jar background image -->
+        <img src="honey.png" alt="Filled Honey Jar" class="honey-filled" id="filledJar">
+
+        <!-- Overlay div that will simulate the removal of honey -->
+        <div class="honey-overlay" id="honeyOverlay"></div>
+
+        <!-- Empty jar image placed on top -->
+        <img src="jar.png" alt="Empty Jar" class="jar-empty">
     </div>
 
-    <input type="number" id="hoursToAdd" placeholder="Enter hours to add">
-    <button id="addHours">Add Hours</button>
+    <!-- Current Hours Display -->
+    <div class="current-hours-text">
+        Current Hours in Jar: <span id="currentHours">0</span> / <span id="maxHours">40</span>
+    </div>
 
-    <input type="number" id="hoursToRemove" placeholder="Enter hours to remove">
+    <!-- Combined Input for Adding/Removing Hours -->
+    <input type="number" id="hoursInput" placeholder="Enter hours">
+    <button id="addHours">Add Hours</button>
     <button id="removeHours">Remove Hours</button>
 
-    <script>
-        // Initialize the honey jar capacity
-        const maxHours = 40;
-        let currentHours = parseInt(localStorage.getItem('honeyJarHours')) || 0;
+    <div id="content"></div>
 
-        // Function to update and display the current hours in the honey jar
-        function updateDisplay() {
-            document.getElementById('currentHours').innerText = currentHours;
-            localStorage.setItem('honeyJarHours', currentHours);
-        }
+         <!-- Theme Switcher Buttons -->
+     <div id="themebuts">
+        <div class="theme-switcher">
+            <button id="babyPinkButton" class="theme-button"></button>
+            <button id="babyBlueButton" class="theme-button"></button>
+            <button id="lavenderButton" class="theme-button"></button>
+        </div>
+        </div>
 
-        // Initialize display on page load
-        updateDisplay();
+    <script src="script.js"></script>
 
-        // Add hours to the jar
-        document.getElementById('addHours').addEventListener('click', () => {
-            const hoursToAdd = parseInt(document.getElementById('hoursToAdd').value);
-            if (!isNaN(hoursToAdd) && hoursToAdd > 0) {
-                currentHours = Math.min(currentHours + hoursToAdd, maxHours);
-                updateDisplay();
-            }
-        });
-
-        // Remove hours from the jar
-        document.getElementById('removeHours').addEventListener('click', () => {
-            const hoursToRemove = parseInt(document.getElementById('hoursToRemove').value);
-            if (!isNaN(hoursToRemove) && hoursToRemove > 0) {
-                currentHours = Math.max(currentHours - hoursToRemove, 0);
-                updateDisplay();
-            }
-        });
-    </script>
 </body>
 </html>
     
