@@ -36,7 +36,7 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Maintain aspect ratio */
+    /* object-fit: cover; Maintain aspect ratio */
     z-index: 1;
     transition: box-shadow 0.3s ease; /* Smooth transition */
 }
@@ -58,7 +58,7 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Maintain aspect ratio */
+    /* object-fit: cover; Maintain aspect ratio */
     z-index: 3;
 }
 
@@ -105,32 +105,6 @@ input {
     flex: 1;
 }
 
-/* Theme Switcher Buttons */
-#themebuts {
-    display: flex;
-    justify-content: right; /* Center the buttons */
-    width: 100%;
-}
-
-.theme-switcher {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-}
-
-.theme-button {
-    width: 4vw; /* Responsive width */
-    height: 4vw; /* Responsive height */
-    border-radius: 50%;
-    cursor: pointer;
-    border: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow all around */
-    transition: transform 0.2s, box-shadow 0.3s;
-}
-
-.theme-button:hover {
-    transform: scale(1.1);
-}
 
 /* Baby Pink Theme */
 .baby-pink-theme {
@@ -167,12 +141,12 @@ input {
 
 /* Baby Blue Theme */
 .baby-blue-theme {
-    background-color: #89cff0; /* Baby blue background */
+    background-color: #b8e3ff; /* Baby blue background */
     color: #333; /* Darker text for contrast */
 }
 
 .baby-blue-theme .honey-overlay{
-    background-color: #89cff0;
+    background-color: #b8e3ff;
 }
 
 .baby-blue-theme h1 {
@@ -193,7 +167,7 @@ input {
 }
 
 .baby-blue-theme input {
-    background-color: #d1ecf1; /* Very light baby blue */
+    background-color: #e8f5fd; /* Very light baby blue */
     border: 2px solid #0077be; /* Blue border */
     color: #2c3e50; /* Darker blue for input text */
 }
@@ -226,10 +200,25 @@ input {
 }
 
 .lavender-theme input {
-    background-color: #e4d7ff; /* Very light lavender */
+    background-color: #f5f0ff; /* Very light lavender */
     border: 2px solid #9e72c3; /* Purple border */
     color: #4a2c5a; /* Darker purple for input text */
 }
+
+
+#jar-switcher {
+    display: flex;
+    justify-content: right;
+    width: 100%;
+}
+
+.switch-button img  {
+    width: auto;
+    height: 4vw;
+}
+
+
+
 
 /* Theme Switcher Buttons */
 #themebuts {
@@ -250,7 +239,7 @@ input {
     border-radius: 50%;
     cursor: pointer;
     border: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow all around */
+    box-shadow: 0 4px 10px rgb(0, 0, 0, 0.2); /* Add shadow all around */
     transition: transform 0.2s, box-shadow 0.3s;
 }
 

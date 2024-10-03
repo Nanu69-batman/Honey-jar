@@ -7,6 +7,8 @@
     
     <link rel="stylesheet" href="style.css">
 
+<script type="module" src="script.js"></script>
+
 </head>
 <body class="baby-pink-theme"> <!-- Default theme on load -->
 
@@ -15,13 +17,13 @@
     <!-- Honey Jar Visual -->
     <div class="jar-container">
         <!-- Filled honey jar background image -->
-        <img src="honey.png" alt="Filled Honey Jar" class="honey-filled" id="filledJar">
+        <img  id="filledJar"src="smilefull.png" alt="Filled Honey Jar" class="honey-filled">
 
         <!-- Overlay div that will simulate the removal of honey -->
         <div class="honey-overlay" id="honeyOverlay"></div>
 
         <!-- Empty jar image placed on top -->
-        <img src="jar.png" alt="Empty Jar" class="jar-empty">
+        <img id="jar-empty" class="jar-empty" src="smilejar.png" alt="Empty Jar">
     </div>
 
     <!-- Current Hours Display -->
@@ -36,6 +38,16 @@
 
     <div id="content"></div>
 
+    <div id="jar-switcher">
+        <button class="switch-button" id="heartjar">
+            <img src="heartjar.png">
+        </button>
+
+        <button class="switch-button" id="smilejar">
+            <img src="smilejar.png">
+        </button>
+    </div>
+
          <!-- Theme Switcher Buttons -->
      <div id="themebuts">
         <div class="theme-switcher">
@@ -45,7 +57,23 @@
         </div>
         </div>
 
-    <script src="script.js"></script>
+        <script>
+            // Function to set the jar images
+            function setJar(jar) {
+                document.getElementById("filledJar").src = jar + "full.png"; // Update filled jar image
+                document.getElementById("jar-empty").src = jar + "jar.png";  // Update empty jar image
+                console.log("Jar switched to: " + jar);
+            }
+        
+            // Event listeners for button clicks
+            document.getElementById("heartjar").addEventListener('click', () => {
+                setJar("heart");
+            });
+        
+            document.getElementById("smilejar").addEventListener('click', () => {
+                setJar('smile');
+            });
+        </script>
 
 </body>
 </html>
